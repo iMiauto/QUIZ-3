@@ -10,9 +10,6 @@ use DomainException;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-/**
- * Casos de prueba CP-01 a CP-06 del curso IF6100 (pruebas unitarias de modelos).
- */
 class CasosPruebaGrupoTest extends TestCase
 {
     use RefreshDatabase;
@@ -30,10 +27,6 @@ class CasosPruebaGrupoTest extends TestCase
         ]);
     }
 
-    // ---------------------------------------------------------------
-    // Métodos ayudantes
-    // ---------------------------------------------------------------
-
     private function crearGrupo(int $numeroGrupo = 1, bool $abierto = true): Grupo
     {
         return Grupo::create([
@@ -45,9 +38,6 @@ class CasosPruebaGrupoTest extends TestCase
         ]);
     }
 
-    /**
-     * @return array<int, Docente> indexado por codEmpleado
-     */
     private function crearDocentesFijos(): array
     {
         $datos = [
@@ -75,11 +65,6 @@ class CasosPruebaGrupoTest extends TestCase
         $grupo->estudiantes()->attach($estudiantes->pluck('id')->all());
     }
 
-    // ---------------------------------------------------------------
-    // Casos de prueba
-    // ---------------------------------------------------------------
-
-    /** CP-01: crear y recuperar el grupo 01 con sus atributos y su curso. */
     public function test_cp01_crear_y_recuperar_grupo_01(): void
     {
         $creado = $this->crearGrupo(1, true);
@@ -90,13 +75,12 @@ class CasosPruebaGrupoTest extends TestCase
         $this->assertSame(2, $grupo->numeroCiclo);
         $this->assertSame(2026, $grupo->ano);
         $this->assertSame(1, $grupo->numeroGrupo);
-        $this->assertSame(true, $grupo->abierto); // booleano true, no 1
+        $this->assertSame(true, $grupo->abierto);
         $this->assertSame('IF6100', $grupo->curso->sigla);
         $this->assertSame(4, $grupo->curso->creditos);
         $this->assertDatabaseCount('grupos', 1);
     }
 
-    /** CP-02: un curso con tres grupos, dos abiertos y uno cerrado. */
     public function test_cp02_curso_con_tres_grupos(): void
     {
         $this->crearGrupo(1, true);
@@ -112,7 +96,6 @@ class CasosPruebaGrupoTest extends TestCase
         $this->assertSame([$this->curso->id], $grupos->pluck('curso_id')->unique()->values()->all());
     }
 
-    /** CP-03: asignar los docentes 1001 y 1002 al grupo 01. */
     public function test_cp03_asignar_dos_docentes(): void
     {
         $grupo = $this->crearGrupo();
@@ -130,7 +113,6 @@ class CasosPruebaGrupoTest extends TestCase
         $this->assertDatabaseCount('docente_grupo', 2);
     }
 
-    /** CP-04: un tercer docente no puede asignarse al grupo 01. */
     public function test_cp04_tercer_docente_lanza_excepcion(): void
     {
         $grupo = $this->crearGrupo();
@@ -142,7 +124,6 @@ class CasosPruebaGrupoTest extends TestCase
             $grupo->asignarDocente($docentes[1003]);
             $this->fail('Se esperaba DomainException al asignar un tercer docente.');
         } catch (DomainException $e) {
-            // esperado
         }
 
         $this->assertCount(2, $grupo->fresh()->docentes);
@@ -151,7 +132,6 @@ class CasosPruebaGrupoTest extends TestCase
         ]);
     }
 
-    /** Extra: volver a asignar un docente que ya está en el grupo no hace nada. */
     public function test_asignar_un_docente_ya_asignado_no_lanza_excepcion(): void
     {
         $grupo = $this->crearGrupo();
@@ -169,7 +149,6 @@ class CasosPruebaGrupoTest extends TestCase
         $this->assertDatabaseCount('docente_grupo', 2);
     }
 
-    /** CP-05: con 1 docente y 14 estudiantes el grupo no puede abrirse. */
     public function test_cp05_grupo_con_14_estudiantes_no_abre(): void
     {
         $grupo = $this->crearGrupo(1, false);
@@ -183,13 +162,11 @@ class CasosPruebaGrupoTest extends TestCase
             $grupo->abrir();
             $this->fail('Se esperaba DomainException al abrir un grupo con 14 estudiantes.');
         } catch (DomainException $e) {
-            // esperado
         }
 
         $this->assertFalse($grupo->fresh()->abierto);
     }
 
-    /** CP-06: con 1 docente y 15 estudiantes el grupo se abre. */
     public function test_cp06_grupo_con_15_estudiantes_abre(): void
     {
         $grupo = $this->crearGrupo(1, false);
@@ -199,7 +176,7 @@ class CasosPruebaGrupoTest extends TestCase
 
         $this->assertTrue($grupo->puedeAbrirse());
 
-        $grupo->abrir(); // no debe lanzar excepción
+        $grupo->abrir();
 
         $this->assertTrue($grupo->fresh()->abierto);
     }
