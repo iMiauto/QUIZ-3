@@ -3,12 +3,20 @@
 namespace App\Models;
 
 use DomainException;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use InvalidArgumentException;
 
 class Grupo extends Model
 {
+    use HasFactory;
+
+    public const NOTA_MINIMA = 0;
+
+    public const NOTA_MAXIMA = 10;
+
     public const MIN_DOCENTES = 1;
 
     public const MAX_DOCENTES = 2;
@@ -36,7 +44,7 @@ class Grupo extends Model
 
     public function docentes(): BelongsToMany
     {
-        return $this->belongsToMany(Docente::class, 'docente_grupo')
+        return $this->belongsToMany(Docente::class, 'grupo_docente')
             ->withTimestamps();
     }
 
@@ -66,6 +74,27 @@ class Grupo extends Model
 
         $this->docentes()->attach($docente->id);
         $this->unsetRelation('docentes');
+    }
+
+    /**
+     * Registra la nota de un estudiante matriculado en este grupo.
+     *
+     * @throws InvalidArgumentException si la nota está fuera de 0..10.
+     * @throws DomainException si el estudiante no está matriculado en el grupo.
+     */
+    public function registrarNota(Estudiante $estudiante, float $nota): void
+    {
+        if ($nota < self::NOTA_MINIMA || $nota > self::NOTA_MAXIMA) {
+            throw new InvalidArgumentException(
+                'La nota debe estar entre '.self::NOTA_MINIMA.' y '.self::NOTA_MAXIMA.'.'
+            );
+        }
+
+        if (! $this->estudiantes()->whereKey($estudiante->id)->exists()) {
+            throw new DomainException('El estudiante no está matriculado en este grupo.');
+        }
+
+        $this->estudiantes()->updateExistingPivot($estudiante->id, ['nota' => $nota]);
     }
 
     /**

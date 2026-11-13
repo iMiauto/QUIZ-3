@@ -17,6 +17,7 @@ return new class extends Migration
         $table->foreignId('estudiante_id')->constrained('estudiantes')->cascadeOnDelete();
         $table->decimal('nota', 5, 2)->nullable();
         $table->timestamps();
+        $table->unique(['grupo_id', 'estudiante_id']);
     });
     }
 
