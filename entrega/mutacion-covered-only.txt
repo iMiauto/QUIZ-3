@@ -1,0 +1,80 @@
+  Mutating application files...
+  [90m71 Mutations for 1 Files created[39m
+
+  [39;100;1m RUN [39;49;22m C:\LARAVEL\quiz3\QUIZ-3\app\Models\Grupo.php
+  [32;1m✓[39;22m [90mLine 32: AlwaysReturnEmptyArray[39m
+  [32;1m✓[39;22m [90mLine 33: RemoveArrayItem[39m
+  [32;1m✓[39;22m [90mLine 34: RemoveArrayItem[39m
+  [32;1m✓[39;22m [90mLine 35: RemoveArrayItem[39m
+  [32;1m✓[39;22m [90mLine 36: RemoveArrayItem[39m
+  [32;1m✓[39;22m [90mLine 55: RemoveArrayItem[39m
+  [32;1m✓[39;22m [90mLine 55: RemoveArrayItem[39m
+  [32;1m✓[39;22m [90mLine 67: IfNegated[39m
+  [32;1m✓[39;22m [90mLine 71: IfNegated[39m
+  [32;1m✓[39;22m [90mLine 71: GreaterOrEqualToGreater[39m
+  [32;1m✓[39;22m [90mLine 71: GreaterOrEqualToSmaller[39m
+  [32;1m✓[39;22m [90mLine 72: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 72: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 72: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 72: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 72: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 72: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 75: RemoveMethodCall[39m
+  [32;1m✓[39;22m [90mLine 76: RemoveMethodCall[39m
+  [32;1m✓[39;22m [90mLine 87: IfNegated[39m
+  [32;1m✓[39;22m [90mLine 87: GreaterToGreaterOrEqual[39m
+  [32;1m✓[39;22m [90mLine 87: GreaterToSmallerOrEqual[39m
+  [32;1m✓[39;22m [90mLine 87: SmallerToGreaterOrEqual[39m
+  [32;1m✓[39;22m [90mLine 87: SmallerToSmallerOrEqual[39m
+  [32;1m✓[39;22m [90mLine 87: BooleanOrToBooleanAnd[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 89: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 93: IfNegated[39m
+  [32;1m✓[39;22m [90mLine 93: RemoveNot[39m
+  [32;1m✓[39;22m [90mLine 97: RemoveArrayItem[39m
+  [32;1m✓[39;22m [90mLine 97: RemoveMethodCall[39m
+  [32;1m✓[39;22m [90mLine 108: GreaterOrEqualToGreater[39m
+  [32;1m✓[39;22m [90mLine 108: GreaterOrEqualToSmaller[39m
+  [32;1m✓[39;22m [90mLine 108: BooleanAndToBooleanOr[39m
+  [32;1m✓[39;22m [90mLine 108: BooleanAndToBooleanOr[39m
+  [32;1m✓[39;22m [90mLine 109: SmallerOrEqualToGreater[39m
+  [32;1m✓[39;22m [90mLine 109: SmallerOrEqualToSmaller[39m
+  [32;1m✓[39;22m [90mLine 110: GreaterOrEqualToGreater[39m
+  [32;1m✓[39;22m [90mLine 110: GreaterOrEqualToSmaller[39m
+  [32;1m✓[39;22m [90mLine 120: IfNegated[39m
+  [32;1m✓[39;22m [90mLine 120: RemoveNot[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveLeft[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatRemoveRight[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 122: ConcatSwitchSides[39m
+  [32;1m✓[39;22m [90mLine 127: TrueToFalse[39m
+  [32;1m✓[39;22m [90mLine 128: RemoveMethodCall[39m
+  [90mMutations:[39m [32;1m71 tested[39;22m
+[39m  [39m[90mScore:[39m[39m     [39m[39m100.00%[39m
+[39m  [39m[90mDuration:[39m[39m  [39m[39m4.49s[39m
+
+{"tool":"pest","result":"passed","tests":24,"passed":24,"assertions":83,"duration_ms":8906}
